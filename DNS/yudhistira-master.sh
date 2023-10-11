@@ -28,7 +28,14 @@ $TTL    604800
 @       IN      NS      i02.com.
 @       IN      A       192.229.2.2
 www     IN      CNAME   i02.com.
+
+; no. 2
 arjuna  IN      A       192.229.3.2
+
+; no 3
+abimanyu  IN    A       192.229.3.4
+
+
 @       IN      AAAA    ::1' | tee /etc/bind/i02/i02.com
 
 sleep 1
