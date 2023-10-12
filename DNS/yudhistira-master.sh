@@ -35,6 +35,9 @@ www       IN      CNAME   i02.com.
 arjuna    IN      A       192.229.3.2
 ; no. 3
 abimanyu  IN      A       192.229.3.4
+; no. 4
+parikesit.abimanyu IN      A       192.229.3.4
+
 ' | tee /etc/bind/i02/i02.com
 
 sleep 1
