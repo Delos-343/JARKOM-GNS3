@@ -18,21 +18,24 @@ echo ';
 ; BIND data file for local loopback interface
 ;
 $TTL    604800
-@       IN      SOA     i02.com. root.i02.com. (
+@         IN      SOA     i02.com. root.i02.com. (
                      2023101001         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;
-@       IN      NS      i02.com.
-@       IN      A       192.229.2.2
-www     IN      CNAME   i02.com.
+@         IN      NS      i02.com.
+@         IN      A       192.229.2.2
+www       IN      CNAME   i02.com.
+@         IN      AAAA    ::1
+;
+;
 ; no. 2
-arjuna  IN      A       192.229.3.2
-; no 3
-abimanyu  IN    A       192.229.3.4
-@       IN      AAAA    ::1' | tee /etc/bind/i02/i02.com
+arjuna    IN      A       192.229.3.2
+; no. 3
+abimanyu  IN      A       192.229.3.4
+' | tee /etc/bind/i02/i02.com
 
 sleep 1
 
@@ -56,6 +59,20 @@ $TTL    604800
 ;
 2.229.192.in-addr.arpa      IN      NS      i02.com.
 2                           IN      PTR     i02.com.' | tee /etc/bind/i02/2.229.192.in-addr.arpa
+
+
+echo 'options {
+        directory "/var/cache/bind";
+
+        forwarders {
+              192.229.2.2;
+        };
+        
+        allow-query{ any; };
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+};' | tee /etc/bind/named.conf.options
 
 service bind9 restart
 
