@@ -1,0 +1,89 @@
+# This the configuration for Yudhistira
+#
+# Uncomment the following line to enable DHCP
+# dhcp
+# or the line below to manually setup an IP address and subnet mask
+# ip 192.168.1.1 255.0.0.0
+#
+
+set pcname Yudhistira
+
+zone "arjuna.I02.com" {
+    type master;
+    file "/etc/bind/zones/arjuna.I02.com.zone";
+};
+
+zone "abimanyu.I02.com" {
+    type master;
+    file "/etc/bind/zones/abimanyu.I02.com.zone";
+    allow-transfer { 192.168.56.101:5016 };
+};
+
+$TTL 86400
+@ IN SOA Yudhistira.arjuna.I02.com. admin.arjuna.I02.com. (
+    2023101201 ; Serial
+    3600       ; Refresh
+    1800       ; Retry
+    604800     ; Expire
+    86400      ; Minimum TTL
+)
+
+@  IN  NS  Yudhistira.arjuna.I02.com.
+@  IN  NS  Werkudara.arjuna.I02.com.
+@  IN  A   192.168.56.101:5014
+www  IN  CNAME  arjuna.I02.com.
+
+$TTL 86400
+@ IN SOA Yudhistira.abimanyu.I02.com. admin.abimanyu.I02.com. (
+    2023101201 ; Serial
+    3600       ; Refresh
+    1800       ; Retry
+    604800     ; Expire
+    86400      ; Minimum TTL
+)
+
+@  IN  NS  Yudhistira.abimanyu.I02.com.
+@  IN  NS  Werkudara.abimanyu.I02.com.
+@  IN  A   192.168.56.101:5013
+www  IN  CNAME  abimanyu.I02.com.
+
+zone "192.168.56.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/reverse-192.168.56.in-addr.arpa.zone";
+};
+
+$TTL 86400
+@ IN SOA Yudhistira.abimanyu.I02.com. admin.abimanyu.I02.com. (
+    2023101201 ; Serial
+    3600       ; Refresh
+    1800       ; Retry
+    604800     ; Expire
+    86400      ; Minimum TTL
+)
+
+@  IN  NS  Yudhistira.abimanyu.I02.com.
+X  IN  PTR  abimanyu.I02.com.
+
+zone "baratayuda.abimanyu.I02.com" {
+    type master;
+    file "/etc/bind/zones/baratayuda.abimanyu.I02.com.zone";
+};
+
+$TTL 86400
+@ IN SOA Yudhistira.abimanyu.I02.com. admin.abimanyu.I02.com. (
+    2023101201 ; Serial
+    3600       ; Refresh
+    1800       ; Retry
+    604800     ; Expire
+    86400      ; Minimum TTL
+)
+
+@  IN  NS  Yudhistira.abimanyu.I02.com.
+@  IN  NS  Werkudara.abimanyu.I02.com.
+www  IN  CNAME  baratayuda.abimanyu.I02.com.
+baratayuda  IN  A   192.168.56.101:5013
+
+zone "rjp.baratayuda.abimanyu.I02.com" {
+    type forward;
+    forwarders { 192.168.56.101:5016 };
+};
