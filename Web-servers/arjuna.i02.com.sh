@@ -34,7 +34,7 @@ curl -L -o "/var/www/arjuna.zip" "https://drive.google.com/uc?export=download&id
 sleep 1 && \
 unzip "/var/www/arjuna.zip" -d "/var/www" && \
 sleep 1 && \
-mv "/var/www/arjuna.yyy.com" "/var/www/arjuna.i02.com" && \
+mv "/var/www/arjuna.yyy.com" "/var/www/arjuna.i02" && \
 sleep 1 && \
 rm "/var/www/arjuna.zip"
 

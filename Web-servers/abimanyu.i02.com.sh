@@ -34,7 +34,7 @@ curl -L -o "/var/www/abimanyu.zip" "https://drive.google.com/uc?export=download&
 sleep 1 && \
 unzip "/var/www/abimanyu.zip" -d "/var/www" && \
 sleep 1 && \
-mv "/var/www/abimanyu.yyy.com" "/var/www/abimanyu.i02.com" && \
+mv "/var/www/abimanyu.yyy.com" "/var/www/abimanyu.i02" && \
 sleep 1 && \
 rm "/var/www/abimanyu.zip"
 
