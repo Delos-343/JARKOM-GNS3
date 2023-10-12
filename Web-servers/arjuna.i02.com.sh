@@ -32,7 +32,7 @@ a2ensite arjuna.i02.com
 
 curl -L -o "/var/www/arjuna.zip" "https://drive.google.com/uc?export=download&id=17tAM_XDKYWDvF-JJix1x7txvTBEax7vX" && \
 sleep 1 && \
-unzip "/var/www/arjuna.zip" -d "/var/www/arjuna.yyy.com" && \
+unzip "/var/www/arjuna.zip" -d "/var/www" && \
 sleep 1 && \
 mv "/var/www/arjuna.yyy.com" "/var/www/arjuna.i02.com" && \
 sleep 1 && \

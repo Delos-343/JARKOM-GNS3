@@ -32,7 +32,7 @@ a2ensite abimanyu.i02.com
 
 curl -L -o "/var/www/abimanyu.zip" "https://drive.google.com/uc?export=download&id=1a4V23hwK9S7hQEDEcv9FL14UkkrHc-Zc" && \
 sleep 1 && \
-unzip "/var/www/abimanyu.zip" -d "/var/www/abimanyu.yyy.com" && \
+unzip "/var/www/abimanyu.zip" -d "/var/www" && \
 sleep 1 && \
 mv "/var/www/abimanyu.yyy.com" "/var/www/abimanyu.i02.com" && \
 sleep 1 && \
