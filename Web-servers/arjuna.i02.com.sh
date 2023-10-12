@@ -17,7 +17,7 @@ unset DEBIAN_FRONTEND
 echo '<VirtualHost *:80>
     
     ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/arjuna.i02.com
+    DocumentRoot /var/www/arjuna.i02
     ServerName arjuna.i02.com
     ServerAlias www.arjuna.i02.com
     

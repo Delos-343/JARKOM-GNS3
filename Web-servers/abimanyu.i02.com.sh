@@ -17,7 +17,7 @@ unset DEBIAN_FRONTEND
 echo '<VirtualHost *:80>
     
     ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/abimanyu.i02.com
+    DocumentRoot /var/www/abimanyu.i02
     ServerName abimanyu.i02.com
     ServerAlias www.abimanyu.i02.com
     
