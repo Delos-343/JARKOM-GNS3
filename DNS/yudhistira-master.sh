@@ -60,28 +60,9 @@ $TTL    604800
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;
-2.229.192.in-addr.arpa      IN      NS      i02.com.
+2.229.192.in-addr.arpa.     IN      NS      i02.com.
 2                           IN      PTR     i02.com.' | tee /etc/bind/i02/2.229.192.in-addr.arpa
 
-
-echo 'zone "4.3.229.192.in-addr.arpa" {
-    type master;
-    file "/etc/bind/i02/4.3.229.192.in-addr.arpa";
-};' | tee -a /etc/bind/named.conf.local
-
-echo ';
-; BIND data file for local loopback interface
-;
-$TTL    604800
-@       IN      SOA     abimanyu.i02.com. root.abimanyu.i02.com. (
-                     2023101001         ; Serial
-                         604800         ; Refresh
-                          86400         ; Retry
-                        2419200         ; Expire
-                         604800 )       ; Negative Cache TTL
-;
-4.3.229.192.in-addr.arpa      IN      NS      abimanyu.i02.com.
-4                           IN      PTR     abimanyu.i02.com.' | tee /etc/bind/i02/4.3.229.192.in-addr.arpa
 
 echo 'options {
         directory "/var/cache/bind";
