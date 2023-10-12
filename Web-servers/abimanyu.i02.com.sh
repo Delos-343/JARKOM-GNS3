@@ -39,4 +39,30 @@ sleep 1 && \
 rm "/var/www/abimanyu.zip"
 
 
+#parikesit
+echo '<VirtualHost *:80>
+    
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/parikesit.abimanyu.i02
+    ServerName parikesit.abimanyu.i02.com
+    ServerAlias www.parikesit.abimanyu.i02.com
+    
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
+</VirtualHost>' | tee /etc/apache2/sites-available/parikesit.abimanyu.i02.com.conf
+
+
+
+a2ensite parikesit.abimanyu.i02.com
+
+curl -L -o "/var/www/parikesit.abimanyu.zip" "https://drive.google.com/uc?export=download&id=1LdbYntiYVF_NVNgJis1GLCLPEGyIOreS" && \
+sleep 1 && \
+unzip "/var/www/parikesit.abimanyu.zip" -d "/var/www" && \
+sleep 1 && \
+mv "/var/www/parikesit.abimanyu.yyy.com" "/var/www/parikesit.abimanyu.i02" && \
+sleep 1 && \
+rm "/var/www/parikesit.abimanyu.zip"
+
+
 service apache2 start
